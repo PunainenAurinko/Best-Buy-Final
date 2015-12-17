@@ -4,11 +4,17 @@ angular.module('finalProjectiOS')
 
     //    $scope.user = user;
     //    console.log($scope.user);
+    
+//    localStorage.clear();
 
+    $scope.logs = [];
+    
     $scope.logs = LogService.getLogs();
 
     $scope.add = function (log) {
-        LogService.addLog(log);
+        
+         $scope.logs = LogService.addLog($scope.logs, log);
+        
     };
 
 });
