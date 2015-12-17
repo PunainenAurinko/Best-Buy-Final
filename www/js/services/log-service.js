@@ -5,10 +5,10 @@ angular.module('finalProjectiOS')
     var logId = 1;
 
     var logs = [
-        {
-            'id': 'log' + logId++ + ': ',
-            'message': 'empty trial log'
-        }
+//        {
+//            'id': 'log' + logId++ + ': ',
+//            'message': 'empty trial log'
+//        }
     ];
 
     return {
