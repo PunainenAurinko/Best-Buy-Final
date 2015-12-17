@@ -63,11 +63,16 @@ angular.module('finalProjectiOS')
 
 
                 $ionicPopup.alert({
+                    
                     title: 'Success',
                     content: 'You are now logged in through Facebook'
+                    
                 });
+            
             })
+        
             .catch(function (response) {
+            
                 $ionicPopup.alert({
                     title: 'Error',
                     content: response.data ? response.data || response.data.message : response
@@ -76,14 +81,19 @@ angular.module('finalProjectiOS')
     };
 
     $scope.isAuthenticated = function () {
+        
         return $auth.isAuthenticated();
+        
     };
 
     $scope.logout = function () {
+        
         $auth.logout().then(function () {
+            
             $ionicPopup.alert({
                 title: 'Success',
                 content: 'You have successfully logged out of Facebook'
+                
             })
         })
     };

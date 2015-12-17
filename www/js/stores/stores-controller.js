@@ -76,6 +76,17 @@ angular.module('finalProjectiOS')
 
                     $log.info(data);
 
+                    if ($scope.stores == '') {
+
+                        $ionicPopup.alert({
+                            title: 'No stores found for this city',
+                            content: 'No results found for: ' + city + '. Please check spelling or refine your search!'
+                        });
+                        
+                        $log.error('No stores found for the entered search term / city...')
+
+                    }
+
                 })
                 .error(function (error) {
                     $log.error('BestBuy API search error...');
