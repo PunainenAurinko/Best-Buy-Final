@@ -1,6 +1,6 @@
 angular.module('finalProjectiOS')
 
-.controller('StoresCtrl', function ($scope, BestBuyService, $log, $ionicPopup, $ionicLoading) {
+.controller('StoresCtrl', function ($scope, BestBuyService, $log, $ionicPopup, $ionicLoading, LogService) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -17,6 +17,8 @@ angular.module('finalProjectiOS')
         findInCity: ''
 
     };
+    
+    $scope.time = new Date();
 
     $scope.stores = [];
 
@@ -32,6 +34,7 @@ angular.module('finalProjectiOS')
             })
             .error(function (error) {
                 $log.error('BestBuy API search error...');
+                LogService.addLog($scope.time + ' BestBuy API search error...');
             });
     }
 
@@ -47,23 +50,10 @@ angular.module('finalProjectiOS')
             })
             .error(function (error) {
                 $log.error('BestBuy API search error...');
+                LogService.addLog($scope.time + ' BestBuy API search error...');
             });
     }
 
-    //    $scope.findInCity = function () {
-    //
-    //        BestBuyService.findInCity()
-    //            .success(function (data) {
-    //
-    //                $scope.stores = data.stores;
-    //
-    //                $log.info(data);
-    //
-    //            })
-    //            .error(function (error) {
-    //                $log.error('BestBuy API search error...');
-    //            });
-    //    }
 
     $scope.findInCity = function (city) {
 
@@ -82,19 +72,22 @@ angular.module('finalProjectiOS')
                             title: 'No stores found for this city',
                             content: 'No results found for: ' + city + '. Please check spelling or refine your search!'
                         });
-                        
+
                         $log.error('No stores found for the entered search term / city...')
+                        LogService.addLog($scope.time + ' No stores found for the entered search term: ' + city + '.');
 
                     }
 
                 })
                 .error(function (error) {
                     $log.error('BestBuy API search error...');
+                    LogService.addLog('BestBuy API search error...');
                 });
 
         } else {
 
             $log.error('Search term is empty...')
+            LogService.addLog($scope.time + ' No name entered in "Enter City" field...');
 
             $ionicPopup.alert({
                 title: 'City name missing',

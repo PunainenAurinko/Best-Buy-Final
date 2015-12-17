@@ -1,9 +1,9 @@
 <ion-view view-title="Logs">
   <ion-content>
     <ion-list>
-    <ion-toggle  ng-model="settings.enableFriends">
-        Enable Friends
-    </ion-toggle>
+        <ion-item ng-repeat="log in logs track by $index">
+        {{$index+1}}. {{log}}
+        </ion-item>
     </ion-list>
   </ion-content>
 </ion-view>
