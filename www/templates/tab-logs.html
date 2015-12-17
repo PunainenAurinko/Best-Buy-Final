@@ -1,8 +1,8 @@
 <ion-view view-title="Logs">
     <ion-content>
         <ion-list>
-            <ion-item ng-repeat="log in logs track by $index">
-                {{$index+1}}. {{log.id}} {{log.message}}
+            <ion-item ng-repeat="log in logs track by $index" class="item-text-wrap">
+                {{$index+1}}. {{log.id}} {{log.message | date:'medium'}}
             </ion-item>
         </ion-list>
     </ion-content>
