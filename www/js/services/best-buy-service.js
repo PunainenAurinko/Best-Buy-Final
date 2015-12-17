@@ -14,19 +14,19 @@ angular.module('finalProjectiOS')
 
         findStores: function () {
 
-            return $http.get(bestBuyAPIentryPoint + '/stores(area(45.4214,-75.6919,1000))?format=json&show=storeId,name,distance&pageSize=100&apiKey=' + key);
+            return $http.get(bestBuyAPIentryPoint + '/stores(area(45.4214,-75.6919,275))?format=json&show=storeId,name,distance&pageSize=100&apiKey=' + key);
 
         },
 
         findInNewYork: function () {
 
-            return $http.get(bestBuyAPIentryPoint + '/stores(city=New York)?format=json&apiKey=' + key);
+            return $http.get(bestBuyAPIentryPoint + '/stores(city=New York)?format=json&pageSize=25&apiKey=' + key);
 
         },
 
         findInCity: function (city) {
 
-            return $http.get(bestBuyAPIentryPoint + '/stores(city=' + city + ')?format=json&apiKey=' + key);
+            return $http.get(bestBuyAPIentryPoint + '/stores(city=' + city + ')?format=json&pageSize=25&apiKey=' + key);
 
         }
 
