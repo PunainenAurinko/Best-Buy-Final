@@ -33,8 +33,8 @@ angular.module('finalProjectiOS')
         }
 
     };
-    
-        $scope.$on('loader_show', function () {
+
+    $scope.$on('loader_show', function () {
 
         $ionicLoading.show({
             template: 'Fetching data from the web...'
@@ -48,7 +48,7 @@ angular.module('finalProjectiOS')
 
     });
 
-//    $scope.user = user;
-//    console.log($scope.user);
+    //    $scope.user = user;
+    //    console.log($scope.user);
 
 });

@@ -7,12 +7,12 @@ angular.module('finalProjectiOS')
     return {
 
         addLog: function (log) {
-            LocalStorageService.setStorage('log' + logId++, log);
+            LocalStorageService.setStorage('logs', log);
 
         },
 
         getLogs: function () {
-            return LocalStorageService.getStorage('log1');
+            return LocalStorageService.getStorage('logs');
         },
     };
 });
