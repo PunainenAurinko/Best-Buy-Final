@@ -2,7 +2,7 @@
     <ion-content>
 
         <button class="button button-balanced" ng-click="findStores()">
-            Find stores close to you
+            Find stores near you
         </button>
 
         <button class="button button-royal" ng-click="findInNewYork()">
@@ -12,8 +12,16 @@
         <button class="button button-positive" ng-click="findInCity(data.findInCity)">
             Search for stores in {{data.findInCity}}
         </button>
+                
+<!--
+        <span class="royal"> Logged in as: Vladimir</span>
 
-<!--        <input type="search" placeholder="Search" ng-model="data.search" value={{data.search}}>-->
+        <button class="button button-assertive item item-button-rightt" ng-click="findInCity(data.findInCity)">
+            Logout
+        </button>
+-->
+
+        <!--        <input type="search" placeholder="Search" ng-model="data.search" value={{data.search}}>-->
 
         <label class="item item-input">
             <span class="input-label">Enter City:</span>
@@ -25,7 +33,7 @@
             <ion-item class="item item-divider">{{$index+1}}. Store Name: {{store.name}}</ion-item>
             <ion-item>Store ID: {{store.storeId}}</ion-item>
             <ion-item ng-show="store.distance">Distance: {{store.distance / 0.62137 | number:1}} km</ion-item>
-            <ion-item ng-show="store.address">Address: {{store.address}}, {{store.city}},  {{store.fullPostalCode}}, {{store.country}}</ion-item>
+            <ion-item ng-show="store.address">Address: {{store.address}}, {{store.city}}, {{store.fullPostalCode}}, {{store.country}}</ion-item>
             <ion-item ng-show="store.location">Exact Location: {{store.location}}</ion-item>
             <ion-item ng-show="store.hours">Opening Hours: {{store.hours}}</ion-item>
             <ion-item ng-show="store.phone">Phone Number: {{store.phone}}</ion-item>

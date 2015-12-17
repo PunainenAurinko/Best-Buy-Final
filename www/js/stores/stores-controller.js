@@ -1,6 +1,6 @@
 angular.module('finalProjectiOS')
 
-.controller('StoresCtrl', function ($scope, BestBuyService, $log, $ionicPopup) {
+.controller('StoresCtrl', function ($scope, BestBuyService, $log, $ionicPopup, $ionicLoading) {
     // With the new view caching in Ionic, Controllers are only called
     // when they are recreated or on app start, instead of every page change.
     // To listen for when this page is active (for example, to refresh data),
@@ -17,7 +17,6 @@ angular.module('finalProjectiOS')
         findInCity: ''
 
     };
-
 
     $scope.stores = [];
 
@@ -94,5 +93,19 @@ angular.module('finalProjectiOS')
         }
 
     };
+
+    $scope.$on('loader_show', function () {
+
+        $ionicLoading.show({
+            template: 'Fetching data from the web...'
+        });
+
+    });
+
+    $scope.$on('loader_hide', function () {
+
+        $ionicLoading.hide();
+
+    });
 
 });

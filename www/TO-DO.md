@@ -3,10 +3,11 @@
 ****************************************
 
 1. Geolocation for Find stores next to you
-2. Search for stores in city - DONE
-3. Logs
-4. Logout buttons
-5. Check questions/issues
+2. Http interceptors
+3. Search for stores in city - DONE
+4. Logs
+5. Logout buttons - broadcast
+6. Check questions/issues
 
 ****************************************
             QUESTIONS/ISSUES

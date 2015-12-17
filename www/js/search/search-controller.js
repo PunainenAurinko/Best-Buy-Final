@@ -1,6 +1,6 @@
 angular.module('finalProjectiOS')
 
-.controller('SearchCtrl', function ($scope, $log, BestBuyService) {
+.controller('SearchCtrl', function ($scope, $log, BestBuyService, $ionicLoading) {
 
     $scope.data = {
 
@@ -33,6 +33,20 @@ angular.module('finalProjectiOS')
         }
 
     };
+    
+        $scope.$on('loader_show', function () {
+
+        $ionicLoading.show({
+            template: 'Fetching data from the web...'
+        });
+
+    });
+
+    $scope.$on('loader_hide', function () {
+
+        $ionicLoading.hide();
+
+    });
 
 //    $scope.user = user;
 //    console.log($scope.user);
