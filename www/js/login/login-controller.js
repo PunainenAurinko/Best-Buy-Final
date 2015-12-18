@@ -25,23 +25,22 @@ angular.module('finalProjectiOS')
 
             $rootScope.$broadcast('authentication-succeeded');
 
-            LogService.addLog({
-                name: $scope.loginData.username,
-                password: $scope.loginData.password
-
-            });
+//            LogService.addLog({
+//                name: $scope.loginData.username,
+//                password: $scope.loginData.password
+//            });
+            
+            LogService.addLog($scope.time + '. Authentication Success. Username: ' +  $scope.loginData.username + '. Password: ' + $scope.loginData.password);
             
 
         } else {
 
             $scope.validationFail = true;
 
-            LogService.addLog({
-                date: new Date(),
-                name: 'Authentication Failed',
-                reason: 'Validation Fail'
-
-            });
+//            LogService.addLog({
+//                date: new Date(),
+//                name: 'Authentication Failed'
+//            });
             
             LogService.addLog($scope.time + ' Authentication Failed...');
 

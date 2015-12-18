@@ -2,7 +2,7 @@
     <ion-content>
         <ion-list>
             <ion-item ng-repeat="log in logs track by $index" class="item-text-wrap">
-                {{$index+1}}. {{log.id}} {{log.message | date:'medium'}}
+                {{$index+1}}. {{log.message}}
             </ion-item>
         </ion-list>
     </ion-content>
