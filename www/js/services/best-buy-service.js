@@ -5,6 +5,30 @@ angular.module('finalProjectiOS')
     var bestBuyAPIentryPoint = 'http://api.bestbuy.com/v1';
     var key = 'zmffkbrdkj6pa9axp4fzc7xz';
 
+    var lat;
+    var long;
+
+    var posOptions = {
+        timeout: 10000,
+        enableHighAccuracy: true
+    };
+
+    $cordovaGeolocation
+
+        .getCurrentPosition(posOptions)
+
+    .then(function (position) {
+
+        lat = position.coords.latitude
+        long = position.coords.longitude
+
+        console.log('lat: ', lat);
+        console.log('long: ', long);
+
+    }, function (err) {
+        // error
+    });
+
     return {
 
         search: function (term) {
@@ -14,40 +38,10 @@ angular.module('finalProjectiOS')
 
         findStores: function () {
 
-            var lat;
-            var long;
+            console.log('lat: ', lat);
+            console.log('long: ', long);
 
-            var posOptions = {
-                timeout: 10000,
-                enableHighAccuracy: true
-            };
-
-            $cordovaGeolocation
-                .getCurrentPosition(posOptions)
-
-            .then(function (position) {
-
-                lat = position.coords.latitude
-                long = position.coords.longitude
-
-                console.log('lat: ', lat);
-                console.log('long: ', long);
-
-            }, function (err) {
-                // error
-            });
-
-                return $http.get(bestBuyAPIentryPoint + '/stores(area(45.4214,-75.6919,275))?format=json&show=storeId,name,distance&pageSize=100&apiKey=' + key);
-            
-            setTimeout(function () {
-
-                console.log('lat: ', lat);
-                console.log('long: ', long);
-
-                return $http.get(bestBuyAPIentryPoint + '/stores(area(' + lat + ',' + long + ',275))?format=json&show=storeId,name,distance&pageSize=100&apiKey=' + key);
-            }, 5000);
-
-            //            return $http.get(bestBuyAPIentryPoint + '/stores(area(' + lat + ',' + long + ',275))?format=json&show=storeId,name,distance&pageSize=100&apiKey=' + key);
+            return $http.get(bestBuyAPIentryPoint + '/stores(area(' + lat + ',' + long + ',275))?format=json&show=storeId,name,distance&pageSize=100&apiKey=' + key);
 
         },
 
